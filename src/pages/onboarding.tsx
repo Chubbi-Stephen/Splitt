@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ONBOARDING_DATA } from "../components/data/onboardingData";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const Onboarding: React.FC = () => {
 	const [currentStep, setCurrentStep] = useState(0);
@@ -31,14 +32,12 @@ const Onboarding: React.FC = () => {
 				</div>
 
 				<div className="w-[23.05px] flex justify-between items-center text-xs font-semibold text-gray-400">
-					{/* <span className="invisible">9:41</span> Space for status bar */}
 					<button className="hover:text-gray-600 transition-colors">
 						Skip
 					</button>
 				</div>
 			</header>
 
-			{/* Content Section (Illustration) */}
 			<main className="flex-1 flex flex-col items-center justify-center px-8">
 				<div className="w-full aspect-square flex items-center justify-center mb-12">
 					<img
@@ -49,7 +48,7 @@ const Onboarding: React.FC = () => {
 				</div>
 			</main>
 
-			{/* Text Card (The Rounded White Area) */}
+			{/* Text Card */}
 			<section className="bg-white rounded-t-[100px] px-8 pt-12 pb-24 shadow-[0_-10px_40px_-15px_rgba(0,0,0,0.1)]">
 				<h1 className="text-2xl font-bold text-center mb-4">{step.title}</h1>
 				<p className="text-gray-500 text-center leading-relaxed">
@@ -64,7 +63,7 @@ const Onboarding: React.FC = () => {
 						onClick={handleBack}
 						className="text-gray-400 flex items-center gap-1 hover:text-gray-600"
 					>
-						&lt; Back
+						<ChevronLeft /> Back
 					</button>
 				) : (
 					<div />
@@ -74,7 +73,8 @@ const Onboarding: React.FC = () => {
 					onClick={handleNext}
 					className="text-gray-800 flex items-center gap-1 hover:opacity-70 transition-opacity"
 				>
-					{currentStep === totalSteps - 1 ? "Get Started" : "Next"} &gt;
+					{currentStep === totalSteps - 1 ? "Get Started" : "Next"}{" "}
+					<ChevronRight size={16} />
 				</button>
 			</footer>
 		</div>
