@@ -17,7 +17,6 @@ const Onboarding: React.FC = () => {
 
 	return (
 		<div className="flex flex-col min-h-screen bg-white text-gray-900 max-w-md mx-auto relative overflow-hidden">
-			{/* Header Section */}
 			<header className="p-6 flex justify-between items-center gap-4">
 				{/* Progress Bar Indicators */}
 				<div className="w-[70%] flex gap-2">
