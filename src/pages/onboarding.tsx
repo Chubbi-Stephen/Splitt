@@ -74,7 +74,7 @@ const Onboarding: React.FC = () => {
 					className="text-gray-800 flex items-center gap-1 hover:opacity-70 transition-opacity"
 				>
 					{currentStep === totalSteps - 1 ? "Get Started" : "Next"}{" "}
-					<ChevronRight size={16} />
+					<ChevronRight />
 				</button>
 			</footer>
 		</div>
