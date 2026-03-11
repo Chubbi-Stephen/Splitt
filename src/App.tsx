@@ -1,8 +1,13 @@
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import Onboarding from "./pages/onboarding";
+
 function App() {
 	return (
-		<>
-			<h1 className="font-extrabold">React + TypeScript</h1>
-		</>
+		<BrowserRouter>
+			<Routes>
+				<Route path="/" element={<Onboarding />} />
+			</Routes>
+		</BrowserRouter>
 	);
 }
 
