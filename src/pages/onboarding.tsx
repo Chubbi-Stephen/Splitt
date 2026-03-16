@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { ONBOARDING_DATA } from "../components/data/onboardingData";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Check } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Onboarding: React.FC = () => {
+	const navigate = useNavigate();
 	const [currentStep, setCurrentStep] = useState(0);
 	const totalSteps = ONBOARDING_DATA.length;
 	const step = ONBOARDING_DATA[currentStep];
@@ -69,11 +72,27 @@ const Onboarding: React.FC = () => {
 				)}
 
 				<button
-					onClick={handleNext}
-					className="text-gray-800 flex items-center gap-1 hover:opacity-70 transition-opacity"
+					onClick={
+						currentStep === totalSteps - 1
+							? () => navigate("/login")
+							: handleNext
+					}
+					className={
+						currentStep === totalSteps - 1
+							? "group relative inline-flex items-center gap-2 px-6 py-2.5 bg-[#1F2A44] text-white text-sm font-semibold rounded-lg overflow-hidden transition-all duration-300 hover:bg-gray-700 hover:shadow-lg hover:scale-105 active:scale-95"
+							: "text-gray-800 flex items-center gap-1 hover:opacity-70 transition-opacity"
+					}
 				>
-					{currentStep === totalSteps - 1 ? "Get Started" : "Next"}{" "}
-					<ChevronRight />
+					{currentStep === totalSteps - 1 ? (
+						<>
+							Get Started
+							<Check className="w-6 h-6 font-bold transition-transform duration-300 group-hover:translate-x-1" />
+						</>
+					) : (
+						<>
+							Next <ChevronRight />
+						</>
+					)}
 				</button>
 			</footer>
 		</div>
