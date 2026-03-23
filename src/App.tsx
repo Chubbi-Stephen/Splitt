@@ -1,8 +1,13 @@
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import SignUp from "./pages/signup/signup";
+
 function App() {
 	return (
-		<>
-			<h1 className="text-center">Splitt</h1>
-		</>
+		<BrowserRouter>
+			<Routes>
+				<Route path="/" element={<SignUp />} />
+			</Routes>
+		</BrowserRouter>
 	);
 }
 
