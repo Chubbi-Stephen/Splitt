@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ONBOARDING_DATA } from "../components/data/onboardingData";
+import { ONBOARDING_DATA } from "../data/onboardingData";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Check } from "lucide-react";
 import { useNavigate } from "react-router-dom";
