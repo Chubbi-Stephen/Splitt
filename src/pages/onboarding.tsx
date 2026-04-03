@@ -3,6 +3,7 @@ import { ONBOARDING_DATA } from "../data/onboardingData";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Check } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import Button from "@/components/ui/Button";
 
 const Onboarding: React.FC = () => {
 	const navigate = useNavigate();
@@ -19,7 +20,7 @@ const Onboarding: React.FC = () => {
 	};
 
 	return (
-		<div className="flex flex-col min-h-screen bg-white text-gray-900 max-w-md mx-auto relative overflow-hidden">
+		<div className="flex flex-col min-h-screen bg-surface text-gray-900 max-w-md mx-auto relative overflow-hidden">
 			<header className="p-6 flex justify-between items-center gap-4">
 				{/* Progress Bar Indicators */}
 				<div className="w-[70%] flex gap-2">
@@ -27,8 +28,8 @@ const Onboarding: React.FC = () => {
 						<div
 							key={index}
 							className={`h-1 flex-1 rounded-full transition-colors duration-300 ${
-								index <= currentStep ? "bg-gray-800" : "bg-gray-200"
-							}`}
+							index <= currentStep ? "bg-brand-dark" : "bg-gray-200"
+						}`}
 						/>
 					))}
 				</div>
@@ -51,7 +52,7 @@ const Onboarding: React.FC = () => {
 			</main>
 
 			{/* Text Card */}
-			<section className="bg-white rounded-t-[100px] px-8 pt-12 pb-24 shadow-[0_-10px_40px_-15px_rgba(0,0,0,0.1)]">
+			<section className="bg-surface-raised rounded-t-[100px] px-8 pt-12 pb-24 shadow-sheet">
 				<h1 className="text-2xl font-bold text-center mb-4">{step.title}</h1>
 				<p className="text-gray-500 text-center leading-relaxed">
 					{step.description}
@@ -71,7 +72,7 @@ const Onboarding: React.FC = () => {
 					<div />
 				)}
 
-				<button
+				<Button
 					onClick={
 						currentStep === totalSteps - 1
 							? () => navigate("/login")
@@ -79,7 +80,7 @@ const Onboarding: React.FC = () => {
 					}
 					className={
 						currentStep === totalSteps - 1
-							? "group relative inline-flex items-center gap-2 px-6 py-2.5 bg-[#1F2A44] text-white text-sm font-semibold rounded-lg overflow-hidden transition-all duration-300 hover:bg-gray-700 hover:shadow-lg hover:scale-105 active:scale-95"
+							? "group relative inline-flex items-center gap-2 px-6 py-2.5 bg-brand-dark text-white text-sm font-semibold rounded-btn overflow-hidden transition-all duration-300 hover:bg-gray-700 hover:shadow-lg hover:scale-105 active:scale-95"
 							: "text-gray-800 flex items-center gap-1 hover:opacity-70 transition-opacity"
 					}
 				>
@@ -93,7 +94,9 @@ const Onboarding: React.FC = () => {
 							Next <ChevronRight />
 						</>
 					)}
-				</button>
+				</Button>
+
+
 			</footer>
 		</div>
 	);
