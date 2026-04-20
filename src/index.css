@@ -1,6 +1,49 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import "tailwindcss";
 
-* {
-	font-family: "Poppins", sans-serif;
+@theme {
+  /* Dynamic App Color Palette based on design */
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  
+  /* Primary Actions & Highlights */
+  --color-brand-coral: #FF6F4E; /* Action buttons, "+ Create New Group" */
+  --color-brand-coral-hover: #FA5A36; 
+  
+  /* Layout & Structural colors */
+  --color-brand-navy: #1F2844; /* Top headers (Settle Up, Add Expense) */
+  --color-brand-navy-light: #2D3A62;
+  
+  /* State Colors */
+  --color-brand-success: #29C25E; /* You are owed amounts, Checkmarks */
+  --color-brand-danger: #FA5050; /* You owe amounts */
+  
+  /* Backgrounds & Surfaces */
+  --color-brand-bg: #F8F9FB; /* General app background behind cards */
+  --color-brand-surface: #FFFFFF; /* Card backgrounds */
+  
+  /* Text Categories */
+  --color-brand-text-main: #1D1E24;
+  --color-brand-text-muted: #8A909C;
+
+  /* Accent & Icon Backgrounds */
+  --color-accent-green-bg: #EAF9F1;
+  --color-accent-red-bg: #FEEFEF;
+  --color-accent-coral-bg: #FFEDEA;
+  
+  --color-icon-purple: #7451F8;
+  --color-accent-purple-bg: #F1EDFF;
+  
+  --color-icon-blue: #5C61F4;
+  --color-accent-blue-bg: #EFF0FF;
+}
+
+@layer base {
+  html, body {
+    @apply m-0 p-0 box-border w-full min-h-screen bg-brand-bg text-brand-text-main font-sans antialiased;
+  }
+
+  /* Making sure images never overflow container boundaries */
+  img {
+    @apply max-w-full h-auto;
+  }
 }
